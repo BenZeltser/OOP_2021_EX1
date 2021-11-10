@@ -1,9 +1,28 @@
-# OOP_2021
-The OOP course (Object Oriented Programming & Design. - Ariel University) is designed to teach Computer Science students with Java background the art of proper agile programming both in Java and in Python. The course is designed as a "project-paced-learning" (aka BPL) it consists of 6 Object Oriented Designing and Programming assignments - which will teach (hands on) the students good practice of OOP, OOD, Agile (Xtream) Programming, while working on large scale software project Using Github.
-This repository is dedicated for Object-Oriented Programming course. It contains Class and TA examples, as well as many assignments related examples. The main motivation for this repository is teaching and education of students to become good programmers and even better software designers.
+# OOP-2021-EX-1
+Python Implemented Offline Elevator algorithm Project as an assignment for Object Oriented Programming Course in Ariel University -  Computer Science 
 
-Code standards: 
+#Sources Used: 
+  1. https://www.youtube.com/watch?v=BCN9mQOT3RQ
+  2. https://www.youtube.com/watch?v=siqiJAJWUVg
+  3. https://github.com/thevarunjain/elevator-system
+  4. Ex0 Document.
 
-Java: https://github.com/twitter-archive/commons/blob/master/src/java/com/twitter/common/styleguide.md
 
-Python: https://google.github.io/styleguide/pyguide.html
+#Define the Space of the Problem: 
+    Within a building, given a number of smart Elevators we implement an Offline algorithm that minimizes arrival time
+    (time that starts as the Passenger calls the Elevator and until he arrives at the destination). to all Passengers. 
+
+
+#The Algorithm:
+  let there be a building with n floors and k Elevators. 
+  
+  
+  We divide the Elevators by Index into 2 Categories: Elevators with an odd Index number that answer up calls, Even Index ones take down calls.
+  By using two Arraylists we will sort the Elevator Calls into Upcalls and Downcalls. Each arraylist will be sorted by the source floor of the call.
+  Each Elevator will take the closest call that it's defined to respond to. When a call is being responded, The Selected Elevator will continue through the 
+  Call's path, Responding to calls along it's path to the Destination. 
+  
+  Before the Elevator Calls are Given, We will "spread" the k Elevators through the n floor, for every n/k floors (whole value) we will set an Elevator Car.
+  By doing that we allow Every Elevator to be able to respond to a nearby call efficiently.
+  
+  If only a single Elevator Exists within the Building, it will first serve the Upcalls, And when finished, The Downcalls.
