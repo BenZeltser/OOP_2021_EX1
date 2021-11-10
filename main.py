@@ -1,12 +1,24 @@
 
+import _json
+import json
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+Building = ""
+Output = ""
+Calls = ""
 
+def getBuilding(input):
+    Building=input
+    return Building
 
-# Press the green button in the gutter to run the script.
+def getOutput(input):
+    Output=input
+    return Output
+
+def getCalls(input):
+    Calls=input
+    return Calls
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    getBuilding(input)
+    getCalls(input)
+    getOutput(input)
