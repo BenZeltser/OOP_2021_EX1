@@ -36,4 +36,6 @@ class Elevator():
 
     def getStopTime(self):
         return self._stopTime
+    def getPos(selfs):
+        return 0;
 
