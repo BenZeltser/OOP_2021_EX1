@@ -1,27 +1,25 @@
 import _json
 import json
-
-Building = ""
-Output = ""
-Calls = ""
+import Names
 
 
-def getBuilding(input):
-    Building = input
-    return Building
+def setbuildingName(input):
+    buildingName = input
+    return buildingName
 
 
-def getOutput(input):
-    Output = input
-    return Output
+def setoutputName(input):
+    outputName = input
+    return outputName
 
 
-def getCalls(input):
-    Calls = input
-    return Calls
+def setcallsName(input):
+    callsName = input
+    return callsName
 
 
 if __name__ == '__main__':
-    getBuilding(input)
-    getCalls(input)
-    getOutput(input)
+    a = Names.Names(1,2,3)
+    setbuildingName(input)
+    setcallsName(input)
+    setoutputName(input)
