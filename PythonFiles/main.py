@@ -1,5 +1,3 @@
-import _json
-import json
 import Names
 
 
@@ -19,7 +17,7 @@ def setcallsName(input):
 
 
 if __name__ == '__main__':
-    a = Names.Names(1,2,3)
+    a = Names.Names(1, 2, 3)
     setbuildingName(input)
     setcallsName(input)
     setoutputName(input)
