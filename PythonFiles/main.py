@@ -14,7 +14,6 @@ def setcallsName(input):
     callsName = input
     return callsName
 
-
 if __name__ == '__main__':
    ## a = Names.Names(1, 2, 3)
     setbuildingName(input)

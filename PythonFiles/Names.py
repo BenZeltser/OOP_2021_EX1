@@ -1,5 +1,6 @@
 
 class Names():
+    ##output file names
     def __init__(self,buildingName,outputName,callsName):
         self.buildingName = buildingName
         self.outputName = outputName
