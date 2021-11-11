@@ -2,13 +2,10 @@ import array
 
 
 class Building():
-    ##data
-    a_list: list
-
-    def __init__(self, maxFloor, minFloor, elevators):
+    def __init__(self, maxFloor, minFloor, elevtors: list):
         self.maxFloor=maxFloor
         self.minFloor=minFloor
-        self.elevators = elevators
+        self.elevators = elevtors
 
     def getMaxFloor(self):
         return self.maxFloor
