@@ -3,7 +3,8 @@ import array
 
 class Building():
     ##data
-    a_list: list.
+    a_list: list
+
     def __init__(self, maxFloor, minFloor, elevators):
         self.maxFloor=maxFloor
         self.minFloor=minFloor
