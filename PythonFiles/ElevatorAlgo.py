@@ -7,19 +7,34 @@ DOWN = -1
 LEVEL = 0
 UP = 1
 
-class elevatorAlgo():
 
-    def __init__(self,building:object):
-        self.building=building
-
+class elevatorAlgo:
+    def __init__(self, building: object):
+        self.building = building
 
     def getBuilding(self):
         return self.building
 
-    def distance (self, elevator, src):
-        pass
-        # pos=
+    @staticmethod
+    def algoName():
+        return "EX1_OOP_Smart_Elevator_Algo_Offline"
 
 
+    def distance(self,elevatorIndex, src):
+        answer=-1
+        elev=Building.getElevator(elevatorIndex)
+        pos=elev.getPos()
+        speed=elev.getSpeed()
+        startNstop=elev.getStartTime()+elev.getStopTime()
+        stopTime=elev.getStopTime()
+        state=elev.getState()
+        distance=math.fabs((src-pos))
+        if src==pos:
+            return 0
+        if state==0:
+            answer=distance*speed+startNstop
+        elif state==1 or state==-1:
+            answer=distance*speed+stopTime
+        return answer
 
 

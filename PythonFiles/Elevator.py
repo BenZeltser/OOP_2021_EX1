@@ -49,6 +49,16 @@ class Elevator():
 
     def getStopTime(self):
         return self._stopTime
-    def getPos(selfs):
-        return 0;
+
+    def getPos(self):
+        return 0; #PLACEHOLDER
+
+    def getState(self):
+        return self.state
+
+    def getUpCalls(self):
+        return self.upcalls
+
+    def getDownCalls(self):
+        return self.downcalls
 
