@@ -1,9 +1,19 @@
 from typing import Iterable, Union, Tuple, Any, Type
 
+import static
+
+#Colums:
+#1 - same String as always
+#2 - Time
+#3 - SRC
+#4 - DST
+#5 NOT RELEVANT
+#6 - THE INDEXED ELEVATOR TO ALLOCATE 4 THE CALL
 
 class Elevator():
 
-    def __init__(self, _id, _speed, _minFloor,_maxFloor,_closeTime,_openTime,_startTime,_stopTime):
+
+    def __init__(self, _id, _speed, _minFloor,_maxFloor,_closeTime,_openTime,_startTime,_stopTime, upcalls=[],downcalls=[], state):
         self._id=_id
         self._speed=_speed
         self._minFloor=_minFloor
@@ -12,6 +22,9 @@ class Elevator():
         self._openTime=_openTime
         self._startTime=_startTime
         self._stopTime=_stopTime
+        self.downcalls=downcalls
+        self.upcalls = upcalls
+        self.state = state
 
     def getID(self):
         return self._id

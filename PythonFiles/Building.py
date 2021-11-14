@@ -1,4 +1,3 @@
-import array
 
 
 class Building():
@@ -8,13 +7,16 @@ class Building():
         self.minFloor=minFloor
         self.elevators = elevators
 
-    def getMaxFloor(self):
-        return self.maxFloor
+def getMaxFloor(self):
+    return self.maxFloor
 
-    def getMinFloor(self):
-        return self.minFloor
+def getMinFloor(self):
+    return self.minFloor
 
-    def getElevator(self,index):
-        return self.elevators[index]
+def getElevator(self,index):
+    return self.elevators[index]
+
+
+
 
 

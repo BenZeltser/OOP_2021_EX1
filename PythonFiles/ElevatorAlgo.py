@@ -2,6 +2,11 @@ import math
 import Elevator
 import Building
 
+ERROR = -2
+DOWN = -1
+LEVEL = 0
+UP = 1
+
 class elevatorAlgo():
 
     def __init__(self,building:object):

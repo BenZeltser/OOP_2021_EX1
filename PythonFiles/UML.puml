@@ -1,0 +1,18 @@
+@startuml
+
+class Elevator {
+
+    }
+
+class ElevatorAlgo {
+
+    }
+
+ class Building {
+
+    }
+
+ class ElevatorCalls {
+
+    }
+@enduml
