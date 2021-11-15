@@ -58,6 +58,7 @@ class elevatorAlgo:
     def addCall (self, elevatorCall):
         elevatorList.append(self, elevatorCall)
 
+    @staticmethod
     def removeCalls(self):
         index=0
         while index<len(elevatorList):
@@ -65,8 +66,28 @@ class elevatorAlgo:
                 elevatorList.remove(index)
                 continue
             index+=1
+
     def allocateAnElevator(self,callForElev):
-        pass
+        elevatorAlgo.removeCalls()
+        index=-1
+        elevatorIndex=0
+        src=callForElev.getSrc()
+        distance=-1
+        elevator= Building.getElevator(index)
+        while elevator!=None
+            if elevator.getState()==ERROR
+                index+=1
+                continue
+            pos=elevator.getPos()
+            if self.isValid(elevator.getState(),src,)
+            elif distance==-1
+                tempDistance
+
+
+
+
+
+
 
 
 
