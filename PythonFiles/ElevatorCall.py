@@ -1,8 +1,6 @@
-# *
-# * This interface represents a call for an elevator - with a dedicated destination (aka smart Elevators).
-# * The call has few states: {Init, Going2SRC, Going2Dest, Done}, each state has a time stamp (in seconds).
-#
 class CallForElevator(object):
+    global INIT, GOING2SRC, GOING2DEST, DONE, DOWN, UP
+
     INIT = 0
     GOING2SRC = 1
     GOING2DEST = 2
@@ -10,9 +8,7 @@ class CallForElevator(object):
     UP = 1
     DOWN = -1
 
-    global time
-    global SRC
-    global DST
+    global time, SRC, DST
 
     def __init__(self, time, SRC, DST):
         self.time = time
@@ -30,17 +26,17 @@ class CallForElevator(object):
 
     # * returns this call current state.
     def getState(self):
-        pass
-    #    * Returns the time (in second) of the given state, if "not there yet" returns -1
-    #     * @param state - the int representing the state for which the time stamp is requested.
-
-    # * @return the destination floor to which this elevator call is targeted to.
-    def getDest(self):
-        pass
+        return self.getState()
 
     # * @return the type of this call {UP,DOWN};
+
     def getType(self):
-        pass
+        if self.get_SRC() == self.getState():
+            pass
+        if self.get_SRC() > self.getState():
+            return self.UP
+        if self.get_SRC() < self.getState():
+            return self.DOWN
 
     # * This methods return the index of the Elevator in the building to which this call was assigned to, if not yet
     # Assigned --> return -1

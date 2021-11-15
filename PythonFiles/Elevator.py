@@ -1,7 +1,10 @@
 from typing import Iterable, Union, Tuple, Any, Type
-
+from ElevatorCall import CallForElevator
 import static
+import heapq
 from DoubleLinkedList import DoubleLinkedList, Node
+import ElevatorAlgo
+import heap
 
 
 # Columns:
@@ -13,6 +16,10 @@ from DoubleLinkedList import DoubleLinkedList, Node
 # 6 - THE INDEXED ELEVATOR TO ALLOCATE 4 THE CALL
 
 class Elevator:
+    global upCalls,downCalls
+    upCalls = []
+    downCalls = []
+
     global ERROR, DOWN, LEVEL, UP, OPEN, CLOSE
     ERROR = -2
     DOWN = -1
@@ -52,7 +59,19 @@ class Elevator:
         temp = self.currentFloor
         while temp.get_data() > 0:
             temp = temp.get_prev()
-        self.currentFloor=temp
+        self.currentFloor = temp
+
+    def getUpCall(self, call=CallForElevator()):
+        dst = upCalls.append(call.get_DST())  # add the call
+        while (upCalls.__sizeof__() > 0):
+                heapq.heapify(upCalls)  # either O(1) or O(log(N))
+                self.goto(heapq.heappop(upCalls)) # go the the most relevant call
+
+    def getDownCall(self, call=CallForElevator()):
+        dst = calls.append(call.get_DST())  # add the call
+        while (calls.__sizeof__() > 0):
+                heap.maxheapify(downCalls)  # either O(1) or O(log(N))
+                self.goto(heapq.heappop(downCalls)) # go the the most relevant call
 
     def getID(self):
         return self._id
@@ -81,6 +100,15 @@ class Elevator:
     def getPos(self):
         return self.currentFloor.get_data()
 
+    def get_dest(self):
+        pass
+
+    def goto(self):
+        pass
+
+    def stop(self):
+        pass
+
     def getState(self):
         return self.state
-        #Return level by default
+        # Return level by default
