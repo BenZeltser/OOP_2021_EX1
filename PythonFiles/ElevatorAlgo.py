@@ -56,36 +56,31 @@ class elevatorAlgo:
                     return False
         return True
 
-    def addCall (self, elevatorCall):
-        elevatorList.append(self, elevatorCall)
-
-    @staticmethod
-    def removeCalls(self):
-        index=0
-        while index<len(elevatorList):
-            if elevatorList(index).getState()==DONE:
-                elevatorList.remove(index)
-                continue
-            index+=1
 
     def allocateAnElevator(self,callForElev):
-        elevatorAlgo.removeCalls()
         index=-1
         elevatorIndex=0
         src=callForElev.getSrc()
         distance=-1
         elevator= Building.getElevator(index)
-        while elevator!=None
-            if elevator.getState()==ERROR
+        while elevator!=None:
+            if elevator.getState()==ERROR:
                 index+=1
                 continue
             pos=elevator.getPos()
-            if self.isValid(elevator.getState(),src,elevator.getCallType())==True
+            if self.isValid(elevator.getState(),src,elevator.getCallType())==True:
                 tempdist=self.distance(index,src)
-                if tempdist!=-1
-                        if tempdist==0
-                            self.addCall(callForElev)
-
+                if tempdist!=-1:
+                        if tempdist==0:
+                            return elevatorIndex
+                        elif distance==-1:
+                            distance=tempdist
+                            index=elevatorIndex
+                        elif tempdist<distance:
+                            distance=tempdist
+                            index=elevatorIndex
+                            
+                            
 
 
 
