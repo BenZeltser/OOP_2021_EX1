@@ -39,10 +39,40 @@ class elevatorAlgo:
         distance=math.fabs((src-pos))
         if src==pos:
             return 0
-        if state==0:
+        if state==LEVEL:
             answer=distance*speed+startNstop
-        elif state==1 or state==-1:
+        elif state==UP or state==-DOWN:
             answer=distance*speed+stopTime
         return answer
+
+    def isValid(self,direction,floorCall,pos,elevDirection):
+        if elevDirection!=direction:
+            return False
+        if direction==UP:
+            if pos>floorCall:
+                return False
+        elif direction==DOWN:
+                if pos<floorCall:
+                    return False
+        return True
+
+    def addCall (self, elevatorCall):
+        elevatorList.append(self, elevatorCall)
+
+    def removeCalls(self):
+        index=0
+        while index<len(elevatorList):
+            if elevatorList(index).getState()==DONE:
+                elevatorList.remove(index)
+                continue
+            index+=1
+    def allocateAnElevator(self,callForElev):
+        pass
+
+
+
+
+
+
 
 
