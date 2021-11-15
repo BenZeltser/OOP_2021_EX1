@@ -45,8 +45,9 @@ class elevatorAlgo:
         return answer
 
     def isValid(self,direction,floorCall,pos,elevDirection):
-        if elevDirection!=direction:
-            return False
+        if elevDirection!=0:
+            if elevDirection!=direction:
+                return False
         if direction==UP:
             if pos>floorCall:
                 return False
@@ -79,9 +80,13 @@ class elevatorAlgo:
                 index+=1
                 continue
             pos=elevator.getPos()
-            if self.isValid(elevator.getState(),src,)
-            elif distance==-1
-                tempDistance
+            if self.isValid(elevator.getState(),src,elevator.getCallType())==True
+                tempdist=self.distance(index,src)
+                if tempdist!=-1
+                        if tempdist==0
+                            self.addCall(callForElev)
+
+
 
 
 
