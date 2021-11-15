@@ -1,5 +1,6 @@
 @startuml
 
+
 class Elevator {
 
     }
@@ -9,7 +10,12 @@ class ElevatorAlgo {
     }
 
  class Building {
-
+    getMaxFloor()
+    getMinFloor()
+    getElevator()
+    maxFloor
+    minFloor
+    Object: Elevators
     }
 
  class ElevatorCalls {

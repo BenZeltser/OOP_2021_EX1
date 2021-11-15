@@ -48,6 +48,10 @@ floorList = DoubleLinkedList()
 #
 # ####
 
+global buildingName
+global outputName
+global callsName
+
 def setbuildingName(input):
     buildingName = input
     return buildingName

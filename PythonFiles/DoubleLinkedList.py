@@ -1,6 +1,10 @@
 # defining our node object
 class Node(object):
 
+    '''
+        Code imported from Geeks4Geeks
+    '''
+
     def __init__(self, data=None, next_node=None, prev_node=None):
         # our node has three properties, a piece of data, a pointer to the next node, and a pointer to the previous node.
         self.data = data

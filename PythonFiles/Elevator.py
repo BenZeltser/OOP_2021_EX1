@@ -4,7 +4,7 @@ import static
 from DoubleLinkedList import DoubleLinkedList, Node
 
 
-# Colums:
+# Columns:
 # 1 - same String as always
 # 2 - Time
 # 3 - SRC
