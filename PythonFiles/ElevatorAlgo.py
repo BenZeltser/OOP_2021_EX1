@@ -1,5 +1,4 @@
 import math
-import Elevator
 import Building
 
 
@@ -30,7 +29,7 @@ class elevatorAlgo:
 
     def distance(self,elevatorIndex, src):
         answer=-1
-        elev=Building.getElevator(elevatorIndex)
+        elev= Building.getElevator(elevatorIndex)
         pos=elev.getPos()
         speed=elev.getSpeed()
         startNstop=elev.getStartTime()+elev.getStopTime()

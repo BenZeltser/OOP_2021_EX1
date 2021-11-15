@@ -83,3 +83,4 @@ class Elevator:
 
     def getState(self):
         return self.state
+        #Return level by default

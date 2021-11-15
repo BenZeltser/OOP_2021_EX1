@@ -44,12 +44,7 @@ class DoubleLinkedList(object):
             curr_node = curr_node.next_node
 
     def get_list_size(self):
-        '''
-            Returns the size of the list
-            Time Complexity: O(n), also if you think about it you could calculate it once store it as a property.
-                             Then when you insert/delete the node you just update the count. This would make it an O(1)
-                             operation.
-        '''
+
 
         count = 0
 
