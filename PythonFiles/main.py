@@ -1,13 +1,17 @@
 import time
-import  numpy
+import numpy
 import Names
 import csv
 import json
-import  _json
+import _json
 import threading
 import time
+from DoubleLinkedList import DoubleLinkedList
+from DoubleLinkedList import Node
 
 ###JSON###
+
+floorList = DoubleLinkedList()
 
 
 # with open('Assignments/Ex1/data/Ex1_input/Ex1_Buildings/B5.json', 'r') as f:
@@ -20,29 +24,29 @@ import time
 
 ###Threads###
 
-def p1():
-    time.sleep(3)
-    print("p1")
-def p2():
-    time.sleep(2)
-    print("p2")
-def p3():
-    time.sleep(1)
-    print("p3")
-
-x=threading.Thread(target=p1(),args=())
-x.start()
-
-y = threading.Thread(target=p2(),args=())
-y.start()
-
-z = threading.Thread(target=p3(),args=())
-z.start()
-
-print(threading.active_count())
-x.join()
-
-####
+# def p1():
+#     time.sleep(3)
+#     print("p1")
+# def p2():
+#     time.sleep(2)
+#     print("p2")
+# def p3():
+#     time.sleep(1)
+#     print("p3")
+#
+# x=threading.Thread(target=p1(),args=())
+# x.start()
+#
+# y = threading.Thread(target=p2(),args=())
+# y.start()
+#
+# z = threading.Thread(target=p3(),args=())
+# z.start()
+#
+# print(threading.active_count())
+# x.join()
+#
+# ####
 
 def setbuildingName(input):
     buildingName = input
@@ -58,8 +62,22 @@ def setcallsName(input):
     callsName = input
     return callsName
 
+
 if __name__ == '__main__':
-   ## a = Names.Names(1, 2, 3)
     setbuildingName(input)
     setcallsName(input)
     setoutputName(input)
+
+
+head = Node(0)
+print(head.get_data())
+alist = DoubleLinkedList(head)
+
+x=-10
+y=100
+i = x
+while(i<y):
+    alist.insert_end(head.get_data()+i)
+    i+=1
+
+alist.traverse()
