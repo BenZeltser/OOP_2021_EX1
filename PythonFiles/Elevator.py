@@ -4,7 +4,7 @@ import static
 import heapq
 from DoubleLinkedList import DoubleLinkedList, Node
 import ElevatorAlgo
-import heap
+import Heap
 
 
 # Columns:
@@ -68,9 +68,9 @@ class Elevator:
                 self.goto(heapq.heappop(upCalls)) # go the the most relevant call
 
     def getDownCall(self, call=CallForElevator()):
-        dst = calls.append(call.get_DST())  # add the call
-        while (calls.__sizeof__() > 0):
-                heap.maxheapify(downCalls)  # either O(1) or O(log(N))
+        dst = downCalls.append(call.get_DST())  # add the call
+        while (downCalls.__sizeof__() > 0):
+                Heap.maxheapify(downCalls)  # either O(1) or O(log(N))
                 self.goto(heapq.heappop(downCalls)) # go the the most relevant call
 
     def getID(self):
@@ -103,8 +103,19 @@ class Elevator:
     def get_dest(self):
         pass
 
-    def goto(self):
-        pass
+    def goto(self, dst):
+
+        if self.currentFloor > dst:
+            while self.currentFloor.get_data() > dst:
+                currentFloor = currentFloor.get_prev()
+
+        elif self.currentFloor < dst:
+            while self.currentFloor.get_data() > dst:
+                currentFloor = currentFloor.get_next()
+
+        else:
+            pass
+
 
     def stop(self):
         pass
