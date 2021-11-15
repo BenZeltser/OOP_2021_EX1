@@ -55,11 +55,7 @@ class DoubleLinkedList(object):
 
         return count
 
-    def insert_beg(self, data):
-        '''
-            Insert a node at the beginning of our list, at the head.
-            Time Complexity: O(1)
-        '''
+    def insert_beg(self, data)
 
         # define a new node
         new_node = Node(data)
