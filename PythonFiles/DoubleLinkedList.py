@@ -29,10 +29,6 @@ class DoubleLinkedList(object):
         self.head = head
 
     def traverse(self):
-        '''
-            Traverse the list and print each value.
-            Time Complexity: O(n)
-        '''
 
         # grab the first node.
         curr_node = self.head
