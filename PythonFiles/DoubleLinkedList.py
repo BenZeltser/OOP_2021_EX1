@@ -55,7 +55,7 @@ class DoubleLinkedList(object):
 
         return count
 
-    def insert_beg(self, data)
+    def insert_beg(self, data):
 
         # define a new node
         new_node = Node(data)
@@ -74,11 +74,6 @@ class DoubleLinkedList(object):
         self.head = new_node
 
     def insert_end(self, data):
-        '''
-            Insert a node at the end of our list.
-            Time Complexity: O(n), I have to find the end first then delete. The delete operation is O(1),
-                             but the access is O(n).
-        '''
 
         # define a new node.
         new_node = Node(data)
@@ -104,10 +99,6 @@ class DoubleLinkedList(object):
         new_node.prev_node = first_node
 
     def insert_before(self, ref_node, data):
-        '''
-            Insert a node before a given reference node.
-            Time Complexity: O(1)
-        '''
 
         if self.head is None:
             print("List is empty")
@@ -135,10 +126,6 @@ class DoubleLinkedList(object):
             self.head = new_node
 
     def insert_after(self, ref_node, data):
-        '''
-            Insert a node after a given reference node.
-            Time Complexity: O(1)
-        '''
 
         # define a new node
         new_node = Node(data)
@@ -158,10 +145,6 @@ class DoubleLinkedList(object):
             new_node.next_node.prev_node = new_node
 
     def reverse_list(self):
-        '''
-            Take a list and reverse it so that end it now the front.
-            Time Complexity: O(n)
-        '''
 
         # define two nodes, the first node and the node after the first.
         p_node = self.head
@@ -191,10 +174,6 @@ class DoubleLinkedList(object):
         self.head = p_node
 
     def delete_at_start(self):
-        '''
-            Delete the first node.
-            Time Complexity: O(1)
-        '''
 
         # handle the empty list case
         if self.head is None:
@@ -213,12 +192,6 @@ class DoubleLinkedList(object):
         self.head.prev_node = None
 
     def delete_at_end(self):
-        '''
-            Delete the last node.
-            Time Complexity: O(n), I have to find the end first then delete. The delete operation is O(1),
-                             but the access is O(n). If I knew the end before hand then it could be O(1), for example
-                             we know the tail.
-        '''
 
         # handle the empty list case
         if self.head is None:
@@ -241,10 +214,6 @@ class DoubleLinkedList(object):
         curr.prev_node.next_node = None
 
     def remove_duplicates(self):
-        '''
-            Remove all the duplicate values from the list.
-            Time Complexity: O(n)
-        '''
 
         # grab the first node and the node after the first
         previousNode = self.head
@@ -285,10 +254,6 @@ class DoubleLinkedList(object):
                 currentNode = currentNode.next_node
 
     def delete_element_by_value(self, x):
-        '''
-            Delete the last node.
-            Time Complexity: search time + O(1)
-        '''
 
         # handle the empty case list
         if self.head is None:
@@ -342,10 +307,6 @@ class DoubleLinkedList(object):
                 print("Element not found")
 
     def rotate_list(self, k):
-        '''
-            Rotate a list so that the first K elements are now at the end of the list.
-            Time Complexity: O(n)
-        '''
 
         # handle the case where k is less than or equal to 0
         if (k <= 0) or (k > self.get_list_size()):
