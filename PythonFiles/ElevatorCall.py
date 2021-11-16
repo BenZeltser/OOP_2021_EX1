@@ -11,16 +11,20 @@ class CallForElevator(object):
     global time, SRC, DST
 
     def __init__(self, time, SRC, DST):
-        self.time = time
+        self.time = 0
         self.SRC = SRC
         self.DST = DST
+        self.state=INIT
 
-    def get_time(self):
-        return self.time
+#this function adds the total time a call is taken
+    def addTime(self,newTime):
+        self.time=self.time+newTime
 
+#returns the source of the call
     def get_SRC(self):
         return self.SRC
 
+#returns the destantion of the call
     def get_DST(self):
         return self.DST
 
