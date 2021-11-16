@@ -6,13 +6,6 @@ import json
 import _json
 import threading
 import time
-from DoubleLinkedList import DoubleLinkedList
-from DoubleLinkedList import Node
-
-###JSON###
-
-floorList = DoubleLinkedList()
-
 
 # with open('Assignments/Ex1/data/Ex1_input/Ex1_Buildings/B5.json', 'r') as f:
 #         jsonObject = json.loads(f.read())
@@ -73,15 +66,3 @@ if __name__ == '__main__':
     setoutputName(input)
 
 
-head = Node(0)
-print(head.get_data())
-alist = DoubleLinkedList(head)
-
-x=-10
-y=100
-i = x
-while(i<y):
-    alist.insert_end(head.get_data()+i)
-    i+=1
-
-alist.traverse()
