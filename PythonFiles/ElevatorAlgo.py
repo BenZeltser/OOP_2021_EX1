@@ -13,8 +13,7 @@ class elevatorAlgo:
     UP = 1
     GOING2SRC=1
     GOING2DST=2
-    DONE=3
-    elevatorList = []
+    DON
 
     def __init__(self, building: object):
         self.building = building
@@ -26,8 +25,8 @@ class elevatorAlgo:
     def algoName():
         return "EX1_OOP_Smart_Elevator_Algo_Offline"
 
-
-    def distance(self,elevatorIndex, src):
+    @staticmethod
+    def distance(elevatorIndex, src):
         answer=-1
         elev= Building.getElevator(elevatorIndex)
         pos=elev.getPos()
@@ -43,8 +42,9 @@ class elevatorAlgo:
         elif state==UP or state==-DOWN:
             answer=distance*speed+stopTime
         return answer
-
-    def isValid(self,direction,floorCall,pos,elevDirection):
+    
+    @staticmethod
+    def isValid(direction,floorCall,pos,elevDirection):
         if elevDirection!=0:
             if elevDirection!=direction:
                 return False
@@ -56,7 +56,17 @@ class elevatorAlgo:
                     return False
         return True
 
+    @staticmethod
+    def upOrDown(ele):
+        return ele.getCallType()
+    
+    @staticmethod
+    def abDST(myPos,DST):
+        return math.fabs((myPos-DST))
+        
+    
 
+    @staticmethod
     def allocateAnElevator(self,callForElev):
         index=-1
         elevatorIndex=0
@@ -65,20 +75,36 @@ class elevatorAlgo:
         elevator= Building.getElevator(index)
         while elevator!=None:
             if elevator.getState()==ERROR:
-                index+=1
+                elevatorIndex+=1
                 continue
             pos=elevator.getPos()
             if self.isValid(elevator.getState(),src,elevator.getCallType())==True:
-                tempdist=self.distance(index,src)
-                if tempdist!=-1:
-                        if tempdist==0:
+                tempDist=self.distance(index,src)
+                if tempDist!=-1:
+                        if tempDist==0:
                             return elevatorIndex
                         elif distance==-1:
-                            distance=tempdist
+                            distance=tempDist
                             index=elevatorIndex
-                        elif tempdist<distance:
-                            distance=tempdist
+                        elif tempDist<distance:
+                            distance=tempDist
                             index=elevatorIndex
+            elevatorIndex+=1
+            elevator=Building.getElevator(elevatorIndex)
+            if index==-1:
+                distance=-1
+                elevatorIndex=0
+                while elevator!=None:
+                    if elevator.getState==ERROR:
+                        elevatorIndex+=1
+                        continue
+                    if callForElev.getType()==self.upOrDown(elevator):
+                        tempDist=self.abDST(elevator.getPos(),call)
+                        if distance==-1:
+                            distance=tempDist
+                        elif tempDist<
+
+
                             
                             
 
