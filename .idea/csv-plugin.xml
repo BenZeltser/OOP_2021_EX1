@@ -24,7 +24,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Assignments\Ex1\data\Ex1_input\Ex1_Calls\Calls_b.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Assignments\Ex1\data\Ex1_input\Ex1_Calls\Calls_c.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Assignments\Ex1\data\Ex1_input\Ex1_Calls\Calls_d.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

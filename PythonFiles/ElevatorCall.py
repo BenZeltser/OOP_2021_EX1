@@ -38,7 +38,13 @@ class CallForElevator(object):
         if self.get_SRC() < self.getState():
             return self.DOWN
 
-    # * This methods return the index of the Elevator in the building to which this call was assigned to, if not yet
-    # Assigned --> return -1
-    def allocatedTo(self):
-        pass
+    def setElevator(self,index):
+        elevator=index
+
+    def isDone(self,floor):
+        if floor==self.DST:
+            return 1
+        else
+            return 0
+
+

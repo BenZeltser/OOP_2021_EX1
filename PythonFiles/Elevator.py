@@ -1,4 +1,7 @@
 from typing import Iterable, Union, Tuple, Any, Type
+
+import self as self
+
 from ElevatorCall import CallForElevator
 import static
 import heapq
@@ -16,10 +19,10 @@ import Heap
 # 6 - THE INDEXED ELEVATOR TO ALLOCATE 4 THE CALL
 
 class Elevator:
-    global upCalls,downCalls
+    global upCalls, downCalls, list_of_calls
     upCalls = []
     downCalls = []
-
+    list_of_calls = []
     global ERROR, DOWN, LEVEL, UP, OPEN, CLOSE
     ERROR = -2
     DOWN = -1
@@ -61,17 +64,26 @@ class Elevator:
             temp = temp.get_prev()
         self.currentFloor = temp
 
+    @staticmethod
+    def addCall(call=CallForElevator):
+        list_of_calls.append(call)
+
+    @staticmethod
+    def removeCall():
+        list_of_calls.remove()
+
     def getUpCall(self, call=CallForElevator()):
-        dst = upCalls.append(call.get_DST())  # add the call
-        while (upCalls.__sizeof__() > 0):
-                heapq.heapify(upCalls)  # either O(1) or O(log(N))
-                self.goto(heapq.heappop(upCalls)) # go the the most relevant call
+        upCalls.append(call.get_DST())  # add the call
+        while upCalls.__sizeof__() > 0:
+            heapq.heapify(upCalls)  # either O(1) or O(log(N))
+            self.goto(heapq.heappop(upCalls))  # go the the most relevant call
 
     def getDownCall(self, call=CallForElevator()):
-        dst = downCalls.append(call.get_DST())  # add the call
-        while (downCalls.__sizeof__() > 0):
-                Heap.maxheapify(downCalls)  # either O(1) or O(log(N))
-                self.goto(heapq.heappop(downCalls)) # go the the most relevant call
+
+        downCalls.append(call.get_DST())  # add the call
+        while downCalls.__sizeof__() > 0:
+            Heap.maxheapify(downCalls)  # either O(1) or O(log(N))
+            self.goto(heapq.heappop(downCalls))  # go the the most relevant call
 
     def getID(self):
         return self._id
@@ -115,7 +127,6 @@ class Elevator:
 
         else:
             pass
-
 
     def stop(self):
         pass
