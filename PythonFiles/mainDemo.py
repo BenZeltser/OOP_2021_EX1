@@ -12,11 +12,11 @@ class mainDemo():
 '''
 #Open the file and read from it
 with open ('B5.json', 'r') as f:
-    B5 = json.load(f)
+   B5 = json.load(f)
 
 print(B5.items())
-#Convert JSON content to a string / DICT
-
+# Convert JSON content to a string / DICT
+#
 idList = []
 
 # HOW TO ACCESS A FILE: --> JsonFile['_elevators][index][attribute]
@@ -36,7 +36,7 @@ for elevator in B5['_elevators']:
     _stopTime = B5['_elevators'][1]['_stopTime']
 #Run example
 
-e1 = Elevator.Elevator(_id,_speed,_minFloor,_maxFloor,_closeTime,_openTime,_startTime,_stopTime)
+# e1 = Elevator.Elevator(_id,_speed,_minFloor,_maxFloor,_closeTime,_openTime,_startTime,_stopTime)
 
 #INSTANCE COMPLETE
 

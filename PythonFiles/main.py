@@ -29,35 +29,27 @@ with open('Assignments/Ex1/data/Ex1_input/Ex1_Buildings/B5.json', 'r') as f:
 '''
 
 
+
+
 class main():
-    with open('B5.json', 'r') as f:
-        B5 = json.load(f)
 
-    #  bName=input("enter building number")
-   # # fileName="B"+bName+".json"
-   #  with open('B5.json','r') as fileOne:
-   #      building=json.load(fileOne)
-    #Cname=input("enter call type (choose a letter from a to d)")
-    #filename2="Calls_"+"d.csv"
-   # with open(filename2,'r') as FileTwo
-
-
-
-    global buildingName
-    global outputName
-    global callsName
-
-    def __init__(self,buildingName,outputName,callsName):
-        self.buildingName=buildingName
-        self.outputName = outputName
-        self.callsName = callsName
-
-    '''
-        Code Owners: 313327579, 2088...
-    '''
     global ID0,ID1
+    ###############
     ID0=313327579
-    ID1 =208849620
+    ID1=208849620
+    ###############
+    '''
+       t1.) Get 3 Strings
+    '''
+    bName=input("enter building number")
+    fileOne= "B" + bName + ".json"
+    with open('B5.json','r') as fileOne:
+        building=json.load(fileOne)
+
+    Cname=input("enter call type (choose a letter from a to d)")
+    filename2= "Calls_" + "d.csv"
+    with open(filename2,'r') as FileTwo:
+        csv = csv.reader(FileTwo)
 
     elevetorCalls=[]
 
@@ -66,3 +58,55 @@ if __name__ == '__main__':
     pass
 
 
+
+
+'''
+    t2.) get Json files
+'''
+
+
+
+
+
+
+
+
+
+
+
+'''
+    t3.) get CSV files
+'''
+
+
+
+
+
+
+
+
+
+
+'''
+    t4.) output CSV file
+'''
+
+    #Set the writing
+
+with open('KUKURIKU440.csv', 'w', newline='') as f:
+    fieldnames = ['Elevator call','time','SRC','DST','Status','Allocated to (index)']
+    theWriter = csv.DictWriter(f, fieldnames=fieldnames)
+
+    #Actually start writing
+
+    theWriter.writeheader()
+
+    #insert each info accordingly
+
+    for row in calls:
+        theWriter.writerow({'Elevator call':1, #always the same
+                            'time':2,
+                            'SRC':3,
+                            'DST':4,
+                            'Status':5,         #always -1
+                            'Allocated to':6})
