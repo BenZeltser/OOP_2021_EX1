@@ -30,6 +30,16 @@ with open('Assignments/Ex1/data/Ex1_input/Ex1_Buildings/B5.json', 'r') as f:
 
 
 class main():
+
+    #bName=input("enter building number")
+    #fileName="B"+bName+".json"
+    with open('b5.,'r') as fileOne:
+        building=json.load(fileOne)
+    Cname=input("enter call type (choose a letter from a to d)")
+    filename2="Calls_"+"d.csv"
+    #with open(filename2,'r') as FileTwo
+
+
     global buildingName
     global outputName
     global callsName
