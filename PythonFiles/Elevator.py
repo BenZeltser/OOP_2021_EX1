@@ -1,3 +1,4 @@
+import time
 from typing import Iterable, Union, Tuple, Any, Type
 
 import self as self
@@ -8,6 +9,7 @@ import heapq
 from DoubleLinkedList import DoubleLinkedList, Node
 import ElevatorAlgo
 import Heap
+import threading
 
 '''
     ***TODO***
@@ -87,13 +89,14 @@ class Elevator:
         while upCalls.__sizeof__() > 0:
             heapq.heapify(upCalls)  # either O(1) or O(log(N))
             self.goto(heapq.heappop(upCalls))  # go the the most relevant call
+        self.state = LEVEL
 
     def getDownCall(self, call=CallForElevator(time,SRC,DST)):
-
         downCalls.append(call.get_DST())  # add the call
         while downCalls.__sizeof__() > 0:
             Heap.maxheapify(downCalls)  # either O(1) or O(log(N))
             self.goto(heapq.heappop(downCalls))  # go the the most relevant call
+        self.state = LEVEL
 
     def getID(self):
         return self._id
@@ -123,24 +126,23 @@ class Elevator:
         return self.currentFloor.get_data()
 
     def get_dest(self):
-        pass
+        return self.list_of_calls.index(len(list_of_calls)-1)
 
     def goto(self, dst):
-
         if self.currentFloor > dst:
+            self.state = UP
             while self.currentFloor.get_data() > dst:
                 currentFloor = currentFloor.get_prev()
+            self.state=OPEN
+            self.state=CLOSE
 
         elif self.currentFloor < dst:
             while self.currentFloor.get_data() > dst:
                 currentFloor = currentFloor.get_next()
-
+                self.state = DOWN
+            self.state = OPEN
+            self.state = CLOSE
         else:
             pass
 
-    def stop(self):
-        pass
 
-    def getState(self):
-        return self.state
-        # Return level by default
