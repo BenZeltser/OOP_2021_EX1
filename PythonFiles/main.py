@@ -6,6 +6,9 @@ import _json
 import threading
 import time
 import json
+import ElevatorAlgo
+import ElevatorCall
+import Elevator
 
 '''
 ***JSON***
@@ -51,7 +54,15 @@ class main():
     with open(filename2,'r') as FileTwo:
         csv = csv.reader(FileTwo)
 
-    elevetorCalls=[]
+    allCalls=[]
+    for i in range(len(elevetorCalls)):
+        thisCall=elevetorCalls[i]
+        elev=ElevatorAlgo.allocateAnElevator(thisCall)
+        thisCall.setElevator(elev)
+
+
+
+
 
 
 if __name__ == '__main__':
