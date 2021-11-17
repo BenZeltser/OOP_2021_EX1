@@ -9,7 +9,10 @@ from DoubleLinkedList import DoubleLinkedList, Node
 import ElevatorAlgo
 import Heap
 
-
+'''
+    ***TODO***
+    1.
+'''
 # Columns:
 # 1 - same String as always
 # 2 - Time
@@ -30,6 +33,8 @@ class Elevator:
     UP = 1
     OPEN = 1
     CLOSE = 0
+    #PlaceHolders:
+    time=DST=SRC=0
 
     def __init__(self, _id, _speed, _minFloor, _maxFloor, _closeTime, _openTime, _startTime, _stopTime):
         self._id = _id
@@ -64,6 +69,11 @@ class Elevator:
             temp = temp.get_prev()
         self.currentFloor = temp
 
+    '''
+        GetTime
+    '''
+
+
     @staticmethod
     def addCall(call=CallForElevator):
         list_of_calls.append(call)
@@ -72,13 +82,13 @@ class Elevator:
     def removeCall():
         list_of_calls.remove()
 
-    def getUpCall(self, call=CallForElevator()):
+    def getUpCall(self, call=CallForElevator(time,SRC,DST)):
         upCalls.append(call.get_DST())  # add the call
         while upCalls.__sizeof__() > 0:
             heapq.heapify(upCalls)  # either O(1) or O(log(N))
             self.goto(heapq.heappop(upCalls))  # go the the most relevant call
 
-    def getDownCall(self, call=CallForElevator()):
+    def getDownCall(self, call=CallForElevator(time,SRC,DST)):
 
         downCalls.append(call.get_DST())  # add the call
         while downCalls.__sizeof__() > 0:
