@@ -28,12 +28,8 @@ class CallForElevator(object):
     def get_DST(self):
         return self.DST
 
-    # * returns this call current state.
-    def getState(self):
-        return self.getState()
 
-    # * @return the type of this call {UP,DOWN};
-
+#return the type of this call {UP,DOWN};
     def getType(self):
         if self.get_SRC() == self.getState():
             pass
@@ -42,13 +38,11 @@ class CallForElevator(object):
         if self.get_SRC() < self.getState():
             return self.DOWN
 
-    def setElevator(self,index):
-        elevator=index
-
+#this function return 1 if the call is completed 0 if not 
     def isDone(self,floor):
         if floor==self.DST:
             return 1
-        else
+        else:
             return 0
 
 
