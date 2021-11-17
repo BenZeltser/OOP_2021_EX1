@@ -10,11 +10,13 @@ class CallForElevator(object):
 
     global time, SRC, DST
 
-    def __init__(self, time, SRC, DST):
+    def __init__(self,Callname, time, SRC, DST):
+        self.Callname=Callname
         self.time = 0
         self.SRC = SRC
         self.DST = DST
         self.state=INIT
+        self.elevatorIND=-1
 
 #this function adds the total time a call is taken
     def addTime(self,newTime):
@@ -45,4 +47,6 @@ class CallForElevator(object):
         else:
             return 0
 
-
+#this function changes the elevator index so it will show what elevator took the call
+    def setElevator(self,ele):
+        self.elevatorIND=ele
