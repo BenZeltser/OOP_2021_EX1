@@ -12,9 +12,9 @@ class mainDemo():
 '''
 #Open the file and read from it
 with open ('B5.json', 'r') as f:
-    jsonFile = json.load(f)
+    B5 = json.load(f)
 
-print(jsonFile.items())
+print(B5.items())
 #Convert JSON content to a string / DICT
 
 idList = []
@@ -23,17 +23,17 @@ idList = []
 
 #EXAMPLE FOR ELEVATOR 1
 
-for elevator in jsonFile['_elevators']:
+for elevator in B5['_elevators']:
     print(elevator['_id'])
 
-_id = jsonFile['_elevators'][1]['_id']
-_speed = jsonFile['_elevators'][1]['_speed']
-_minFloor = jsonFile['_elevators'][1]['_minFloor']
-_maxFloor = jsonFile['_elevators'][1]['_maxFloor']
-_closeTime = jsonFile['_elevators'][1]['_closeTime']
-_openTime = jsonFile['_elevators'][1]['_openTime']
-_startTime = jsonFile['_elevators'][1]['_startTime']
-_stopTime = jsonFile['_elevators'][1]['_stopTime']
+_id = B5['_elevators'][1]['_id']
+_speed = B5['_elevators'][1]['_speed']
+_minFloor = B5['_elevators'][1]['_minFloor']
+_maxFloor = B5['_elevators'][1]['_maxFloor']
+_closeTime = B5['_elevators'][1]['_closeTime']
+_openTime = B5['_elevators'][1]['_openTime']
+_startTime = B5['_elevators'][1]['_startTime']
+_stopTime = B5['_elevators'][1]['_stopTime']
 #Run example
 
 e1 = Elevator.Elevator(_id,_speed,_minFloor,_maxFloor,_closeTime,_openTime,_startTime,_stopTime)
