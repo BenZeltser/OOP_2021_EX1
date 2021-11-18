@@ -39,18 +39,17 @@ class main():
     ID1 = 208849620
     ###############
 
+
     '''
-       t1.) Get 3 Strings + Json and CSV file
+        t1.) Get Json data
     '''
     bName = input("enter building number")
     fileOne = "B" + bName + ".json"
     with open(fileOne, 'r') as fileOne:
         building = json.load(fileOne)
 
-
-
     '''
-        t3.) get CSV Data and output the out.csv file
+        t2.) get CSV Data and output the out.csv file
     '''
 
     Cname = input("enter call type (choose a letter from a to d)")
@@ -62,22 +61,34 @@ class main():
         '''
         # Set the writing
 
-        with open('KUKURIKU440.csv.csv', 'w', newline='') as f:
-            fieldnames = ['Elevator call', 'time', 'SRC', 'DST', 'Status', 'Allocated to']
+        with open('out.csv', 'w', newline='') as f:
+            fieldnames = ['Elevator call', 'time', 'SRC', 'DST', 'Status', 'Elevator allocated']
             theWriter = csv.DictWriter(f, fieldnames=fieldnames)
 
-            # Actually start writing
+
+        # Write to the file
 
             theWriter.writeheader()
-
-            allCalls = []
             for call in csv_reader:
+                #Activate the Allocation algorithm
+
+                '''
+                    *****PLACE CODE HERE*****
+                    
+                    Description:
+                        1.Create allCalls[]
+                        2.Allocate an Elevator for the call
+                        3.Change the value of of call[5] to the index of the allocated Elevator
+                        HENCE: call[5] = Algo.Allocate
+                '''
+
+
                 theWriter.writerow({'Elevator call': call[0],  # always the same
                                     'time': call[1],
                                     'SRC': call[2],
                                     'DST': call[3],
                                     'Status': call[4],  # always -1
-                                    'Allocated to': call[5]})
+                                    'Elevator allocated': call[5]})
 
 
 if __name__ == '__main__':
