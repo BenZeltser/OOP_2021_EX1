@@ -52,6 +52,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\PythonFiles\KUKURIKU440.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\PythonFiles\KUKURIKU440.csv.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
