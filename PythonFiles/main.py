@@ -32,57 +32,39 @@ with open('Assignments/Ex1/data/Ex1_input/Ex1_Buildings/B5.json', 'r') as f:
 '''
 
 
-
-
 class main():
-
-    global ID0,ID1
+    global ID0, ID1
     ###############
-    ID0=313327579
-    ID1=208849620
+    ID0 = 313327579
+    ID1 = 208849620
     ###############
     '''
-       t1.) Get 3 Strings
+       t1.) Get 3 Strings + Json and CSV file
     '''
-    bName=input("enter building number")
-    fileOne= "B" + bName + ".json"
-    with open('B5.json','r') as fileOne:
-        building=json.load(fileOne)
+    bName = input("enter building number")
+    fileOne = "B" + bName + ".json"
+    with open(fileOne, 'r') as fileOne:
+        building = json.load(fileOne)
 
-    Cname=input("enter call type (choose a letter from a to d)")
-    filename2= "Calls_" + "d.csv"
-    with open(filename2,'r') as FileTwo:
-        csv = csv.reader(FileTwo)
+    Cname = input("enter call type (choose a letter from a to d)")
+    filename2 = "Calls_" + "d.csv"
+    with open(filename2, 'r') as FileTwo:
+        csvFile = csv.reader(FileTwo)
 
+
+
+    '''
+        Allocate Elevators to 'allCalls'
+    '''
     allCalls=[]
-    for i in range(len(elevetorCalls)):
-        thisCall=elevetorCalls[i]
-        elev=ElevatorAlgo.allocateAnElevator(thisCall)
-        thisCall.setElevator(elev)
-
-
-
-
-
-
+    for call in csv.reader:
+        print(call[1])
 if __name__ == '__main__':
     pass
 
-
-
-
 '''
-    t2.) get Json files
+    t2.) get Json data
 '''
-
-
-
-
-
-
-
-
-
 
 
 '''
@@ -90,34 +72,27 @@ if __name__ == '__main__':
 '''
 
 
-
-
-
-
-
-
-
-
 '''
     t4.) output CSV file
 '''
 
-    #Set the writing
+
+# Set the writing
 
 with open('KUKURIKU440.csv', 'w', newline='') as f:
-    fieldnames = ['Elevator call','time','SRC','DST','Status','Allocated to (index)']
+    fieldnames = ['Elevator call', 'time', 'SRC', 'DST', 'Status', 'Allocated to (index)']
     theWriter = csv.DictWriter(f, fieldnames=fieldnames)
 
-    #Actually start writing
+    # Actually start writing
 
     theWriter.writeheader()
 
-    #insert each info accordingly
+    # insert each info accordingly
 
-    for row in calls:
-        theWriter.writerow({'Elevator call':1, #always the same
-                            'time':2,
-                            'SRC':3,
-                            'DST':4,
-                            'Status':5,         #always -1
-                            'Allocated to':6})
+    # for row in calls:
+    #     theWriter.writerow({'Elevator call': 1,  # always the same
+    #                         'time': 2,
+    #                         'SRC': 3,
+    #                         'DST': 4,
+    #                         'Status': 5,  # always -1
+    #                         'Allocated to': 6})
