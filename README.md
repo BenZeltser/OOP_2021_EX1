@@ -1,5 +1,5 @@
 # OOP-2021-EX-1
-Python Implemented Offline Elevator algorithm Project as an assignment for Object Oriented Programming Course in Ariel University -  Computer Science 
+A Python Implemented Offline Elevator algorithm Project as an assignment for Object Oriented Programming Course in Ariel University -  Computer Science 
 
 #Sources Used: 
   1. https://www.youtube.com/watch?v=BCN9mQOT3RQ
