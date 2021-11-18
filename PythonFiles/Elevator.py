@@ -1,3 +1,4 @@
+import math
 import time
 from typing import Iterable, Union, Tuple, Any, Type
 
@@ -125,6 +126,14 @@ class Elevator:
 
     def getStopTime(self):
         return self._stopTime
+
+    def calculateTime(self,dif):
+        OT=self.getOpenTime()
+        CT=self.getCloseTime()
+        startT=self.getStartTime()
+        stopT=self.getStopTime()
+        SP=self.getSpeed()
+        return CT+startT+(dif/SP)+OT+stopT
 
     def getPos(self):
         return self.currentFloor.get_data()
