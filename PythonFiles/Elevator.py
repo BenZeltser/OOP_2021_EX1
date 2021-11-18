@@ -80,17 +80,26 @@ class Elevator:
         list_of_calls.remove()
 
     def getUpCall(self, call=CallForElevator(a_call,time,SRC,DST)):
-        upCalls.append(call.get_DST())  # add the call
+        upCalls.append(call.get_SRC())  # add the call
+        upCalls.append(call.get_DST())
         while upCalls.__sizeof__() > 0:
+            # GOTO SRC THEN GOTO DST
             heapq.heapify(upCalls)  # either O(1) or O(log(N))
             self.goto(heapq.heappop(upCalls))  # go the the most relevant call
+            self.goto(heapq.heappop(upCalls))  # go the the most relevant call
+            self.state = UP
+
         self.state = LEVEL
 
     def getDownCall(self, call=CallForElevator(a_call,time,SRC,DST)):
-        downCalls.append(call.get_DST())  # add the call
+        downCalls.append(call.get_SRC())  # add the call
         while downCalls.__sizeof__() > 0:
             Heap.maxheapify(downCalls)  # either O(1) or O(log(N))
+            #GOTO SRC THEN GOTO DST
             self.goto(heapq.heappop(downCalls))  # go the the most relevant call
+            self.goto(heapq.heappop(downCalls))  # go the the most relevant call
+            self.state = DOWN
+        #timecount
         self.state = LEVEL
 
     def getID(self):
@@ -123,21 +132,30 @@ class Elevator:
     def get_dest(self):
         return self.list_of_calls.index(len(list_of_calls)-1)
 
-    def goto(self, dst):
-        if self.currentFloor > dst:
-            self.state = UP
-            while self.currentFloor.get_data() > dst:
+    def goto(self, floor):
+        mySource=self.getPos()
+        if self.currentFloor > floor:
+            self.state = DOWN
+            while self.currentFloor.get_data() > floor:
                 currentFloor = currentFloor.get_prev()
-            self.state=OPEN
-            self.state=CLOSE
+                if upCalls.index(0)==currentFloor:
+                    heapq.heappop(upCalls)
+                    myTime=self.calculateTime(math.fabs(mySource-currentFloor))
+                    mySource=currentFloor
+                    CallForElevator.addTime(myTime)
+                    for i in len(list_of_calls):
+                        if list_of_calls[i].isDone()==1:
+                            list_of_calls.pop(i)
+            self.state=LEVEL
 
-        elif self.currentFloor < dst:
-            while self.currentFloor.get_data() > dst:
+        elif (self.currentFloor < floor):
+            while self.currentFloor.get_data() > floor:
                 currentFloor = currentFloor.get_next()
-                self.state = DOWN
+                if downCalls.index(0)==currentFloor:
+                    heapq.heappop(downCalls) #pops the call but not counting time
+                self.state = UP
             self.state = OPEN
             self.state = CLOSE
+            self.state=LEVEL
         else:
-            pass
-
-
+            self.state = LEVEL
