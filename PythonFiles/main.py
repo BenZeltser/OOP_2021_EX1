@@ -105,6 +105,7 @@ class main():
                         2.Allocate an Elevator for the call
                         3.Change the value of of call[5] to the index of the allocated Elevator
                         HENCE: call[5] = Algo.Allocate
+                        
                 '''
                 currentcall=ElevatorCall.CallForElevator(call[0],call[1],call[2],call[3])
                 indexElevator=algo.allocateAnElevator(currentcall)
@@ -116,10 +117,8 @@ class main():
                                     'DST': call[3],
                                     'Status': call[4],  # always 0
                                     'Elevator allocated': call[5]})
+                print(call[5])
 
-
-if __name__ == '__main__':
-    pass
 
 
 

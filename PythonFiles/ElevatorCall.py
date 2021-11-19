@@ -12,7 +12,7 @@ class CallForElevator(object):
 
     def __init__(self,Callname, time, SRC, DST):
         self.Callname=Callname
-        self.time = 0
+        self.time = time
         self.SRC = SRC
         self.DST = DST
         self.state=INIT

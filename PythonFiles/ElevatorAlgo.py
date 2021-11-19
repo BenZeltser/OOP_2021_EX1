@@ -70,7 +70,8 @@ class elevatorAlgo:
     def allocateAnElevator(self,callForElev: CallForElevator):
         index=-1
         elevatorIndex=0
-        src=callForElev.getSrc()
+        src=callForElev.get_SRC()
+        dst = callForElev.get_DST()
         distance=-1
         building = Building.building(-10,100)
         elevators = building.elevators
