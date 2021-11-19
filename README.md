@@ -1,11 +1,3 @@
-       Table of contents
-
-Introduction...................Line 11\n
-Sources........................Line 16\n
-Description....................Line 23\n
-Algorithm......................Line 28\n
-FlowChart......................Line 38\n
-Diagram........................Line 44
 
 
 # OOP-2021-EX-1
