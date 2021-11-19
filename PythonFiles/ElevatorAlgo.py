@@ -12,8 +12,7 @@ class elevatorAlgo():
         return self.building
 
     def distance (self, elevator, src):
-        pass
-        # pos=
+        elev =
 
 
 
