@@ -13,9 +13,11 @@ of Object-Oriented Porgramming.
   4. Ex0 Document.
 
 
+
 **#Define the Space of the Problem:**
     Within a building, given a number of smart Elevators we implement an Offline algorithm that minimizes arrival time
     (time that starts as the Passenger calls the Elevator and until he arrives at the destination). to all Passengers. 
+
 
 
 **#The Algorithm:**
@@ -27,9 +29,11 @@ of Object-Oriented Porgramming.
   If only a single Elevator Exists within the buildingClass, it will first serve the Upcalls, And when finished, The Downcalls.
 
 
+
 **#FlowChart - a FlowChart that describes the proccess of the working classes**
 
 ![flowchart](https://user-images.githubusercontent.com/92685838/142691458-4f7fd3c9-8331-4607-9146-29425a804523.png)
+
 
 
 
