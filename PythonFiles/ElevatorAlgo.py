@@ -3,22 +3,20 @@ import Building
 
 
 
-
 class elevatorAlgo:
-
-    global ERROR, DOWN, LEVEL, UP,GOING2SRC, GOING2DST, DONE
-    ERROR= -2
+    global ERROR, DOWN, LEVEL, UP, GOING2SRC, GOING2DST, DONE
+    ERROR = -2
     DOWN = -1
     LEVEL = 0
     UP = 1
-    GOING2SRC=1
-    GOING2DST=2
-    DONE=3
+    GOING2SRC = 1
+    GOING2DST = 2
+    DONE = 3
 
     def __init__(self, building: object):
         self.building = building
 
-#returns the building the algorithm is currently working on
+    # returns the building the algorithm is currently working on
     def getBuilding(self):
         return self.building
 
@@ -40,10 +38,10 @@ class elevatorAlgo:
         distance=math.fabs((src-pos))
         if src==pos:
             return 0
-        if state==LEVEL:
-            answer=distance*speed+startNstop
-        elif state==UP or state==-DOWN:
-            answer=distance*speed+stopTime
+        if state == LEVEL:
+            answer = distance * speed + startNstop
+        elif state == UP or state == -DOWN:
+            answer = distance * speed + stopTime
         return answer
 
 #this function returns if an elevator can be assigned to a call
@@ -52,12 +50,12 @@ class elevatorAlgo:
         if elevDirection!=0:
             if elevDirection!=direction:
                 return False
-        if direction==UP:
-            if pos>floorCall:
+        if direction == UP:
+            if int(pos) > int(floorCall):
                 return False
-        elif direction==DOWN:
-                if pos<floorCall:
-                    return False
+        elif direction == DOWN:
+            if int(pos) < int(floorCall):
+                return False
         return True
 
 #returns if the elevator is a downcalls elevator or upcalls elevator
@@ -122,7 +120,7 @@ class elevatorAlgo:
         DST=callForElev.getDST()
         if SRC>DST:
             elevator.getDownCall(callForElev)
-        elif DST>SRC:
+        elif DST > SRC:
             elevator.getUpCall(callForElev)
             
 

@@ -15,6 +15,7 @@ import threading
 '''
     ***TODO***
     1.
+    
 '''
 # Columns:
 # 1 - same String as always
@@ -40,6 +41,7 @@ class Elevator:
     time=DST=SRC=a_call=0
 
     def __init__(self, _id, _speed, _minFloor, _maxFloor, _closeTime, _openTime, _startTime, _stopTime):
+        self.callType = None
         self._id = _id
         self._speed = _speed
         self._minFloor = _minFloor
@@ -51,6 +53,11 @@ class Elevator:
 
         self.state = LEVEL
         self.currentFloor = Node(self._minFloor)
+        self.callType
+        if int(_id)%2==0:
+            self.callType = UP
+        else:
+            self.callType = DOWN
 
         '''
         Initiate a Doubly Linked List 
@@ -79,6 +86,9 @@ class Elevator:
     @staticmethod
     def removeCall():
         list_of_calls.remove()
+
+    def getCallType(self):
+        return self.callType
 
     def getUpCall(self, call=CallForElevator(a_call,time,SRC,DST)):
         upCalls.append(call.get_SRC())  # add the call
@@ -126,6 +136,9 @@ class Elevator:
 
     def getStopTime(self):
         return self._stopTime
+
+    def getState(self):
+        return self.state
 
     def calculateTime(self,dif):
         OT=self.getOpenTime()
