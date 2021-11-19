@@ -42,5 +42,3 @@ of Object-Oriented Porgramming.
 ![image](https://user-images.githubusercontent.com/92685838/142691160-107d7549-f47b-4ed7-b9c3-3404987c7cdc.png)
 
 
-#Project Teachers: Prof. Boaz Ben Moshe, Elizabeth Itzkovich #Project Teacher Assistants: Itay lashovar, Achia Zigler
-#Porject authors: Ben zeltser - 313327579, Tomer Levi - 208849620
