@@ -21,11 +21,12 @@ of Object-Oriented Porgramming.
 
 
 **#The Algorithm:**
-  let there be a building with n floors and k Elevators. 
+  Let there be a building with n floors and k Elevators. 
   if K>1 
-  We divide the elevetors into two groups based on their index, odd will take care of the "up calls" while even indexes will take care of "down calls"
-  whenever a new call is being read by the program, it will search between all the available elevetors. assigning the elevetors with the shortest travel 
-  time to the source of the call.
+  We divide the building into K sections, each section hold N/2k floors
+  and we divide the elevators into two groups based on their index.
+  each elevetor is resposible for a section of the floors and only one type of calls (calls down or calls up).
+  The alorithm will then find based on the source of the call what elevator should take the call and assign it to it.
   If only a single Elevator Exists within the buildingClass, it will first serve the Upcalls, And when finished, The Downcalls.
 
 
