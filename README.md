@@ -21,3 +21,15 @@ A Python Implemented Offline Elevator algorithm Project as an assignment for Obj
   time to the source of the call.
   
   If only a single Elevator Exists within the buildingClass, it will first serve the Upcalls, And when finished, The Downcalls.
+
+
+#FlowChart that describes the proccess of the working classes
+
+![flowchart](https://user-images.githubusercontent.com/92685838/142691357-ccb0a997-2bc5-49f9-b4a3-f01d060c8670.png)
+
+
+
+#UML Diagram that describes the classes working inside the program
+
+![image](https://user-images.githubusercontent.com/92685838/142691160-107d7549-f47b-4ed7-b9c3-3404987c7cdc.png)
+
