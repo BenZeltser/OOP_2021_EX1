@@ -45,7 +45,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\PythonFiles\Calls_a.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\PythonFiles\Calls_d.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\PythonFiles\Ex1_Calls_case_2_a.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\PythonFiles\Ex1_Calls_case_2_b.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -67,6 +88,20 @@
           </value>
         </entry>
         <entry key="\PythonFiles\myTester450.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\PythonFiles\out.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\PythonFiles\pelet.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

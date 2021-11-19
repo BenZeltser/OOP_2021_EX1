@@ -58,18 +58,3 @@ class heap:
             array[0], array[i] = array[i], array[0]
             self._maxheapify(array, i, 0)
 
-
-b = [550, 4520, 3, 2340, 12]
-a = heap()
-
-a.maxheapify(b)
-print('Max Heapify -->', b)
-
-a.minheapify(b)
-print('Min Heapify -->', b)
-
-a.ascending_heapsort(b)
-print('Ascending Heap Sort -->', b)
-
-a.descending_heapsort(b)
-print('Descending Heap Sort -->', b)
