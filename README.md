@@ -20,4 +20,4 @@ A Python Implemented Offline Elevator algorithm Project as an assignment for Obj
   whenever a new call is being read by the program, it will search between all the available elevetors. assigning the elevetors with the shortest travel 
   time to the source of the call.
   
-  If only a single Elevator Exists within the Building, it will first serve the Upcalls, And when finished, The Downcalls.
+  If only a single Elevator Exists within the buildingClass, it will first serve the Upcalls, And when finished, The Downcalls.

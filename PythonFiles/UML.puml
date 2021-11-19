@@ -9,7 +9,7 @@ class ElevatorAlgo {
 
     }
 
- class Building {
+ class buildingClass {
     getMaxFloor()
     getMinFloor()
     getElevator()

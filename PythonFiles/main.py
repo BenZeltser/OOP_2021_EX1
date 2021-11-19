@@ -9,6 +9,7 @@ import json
 import ElevatorAlgo
 import ElevatorCall
 import Elevator
+import Building
 
 '''
 ***JSON***
@@ -25,8 +26,8 @@ with open('Assignments/Ex1/data/Ex1_input/Ex1_Buildings/B5.json', 'r') as f:
 '''
     ***TODO**
     1.Get files and info (JSON and CSV)
-    2.Create Building instance and insert info from files
-    3.Insert Elevator list to Building
+    2.Create buildingClass instance and insert info from files
+    3.Insert Elevator list to buildingClass
     4.Iterate Through the CALLS and place them
     5.Export CSV file according to the JAVA program
 '''
@@ -46,14 +47,14 @@ class main():
     bName = input("enter building number")
     fileOne = "B" + bName + ".json"
     with open(fileOne, 'r') as fileOne:
-        building = json.load(fileOne)
+        buildingFile = json.loads(fileOne.read())
 
     '''
         t2.) get CSV Data and output the out.csv file
     '''
 
     Cname = input("enter call type (choose a letter from a to d)")
-    filename2 = "Calls_" + "d.csv"
+    filename2 = "Calls_" + Cname +".csv"
     with open(filename2, 'r') as csv_file:
         csv_reader = csv.reader(csv_file)
         '''
@@ -61,14 +62,38 @@ class main():
         '''
         # Set the writing
 
-        with open('out.csv', 'w', newline='') as f:
+        with open('pelet.csv', 'w', newline='') as f:
             fieldnames = ['Elevator call', 'time', 'SRC', 'DST', 'Status', 'Elevator allocated']
             theWriter = csv.DictWriter(f, fieldnames=fieldnames)
 
 
         # Write to the file
 
+            amaxfloor = buildingFile['_minFloor']
+            aminfloor = buildingFile['_maxFloor']
+            elevators = buildingFile['_elevators']
+
+            # Create instance for each elevator - not sure if needed
+
+            elevatorsList = []
+            print(elevators[0]['_id'])
+            for i in range(len(elevators)-1):
+                anElevator = Elevator.Elevator(
+                     elevators[i]['_id'],
+                     elevators[i]['_speed'],
+                     elevators[i]['_minFloor'],
+                     elevators[i]['_maxFloor'],
+                     elevators[i]['_closeTime'],
+                     elevators[i]['_openTime'],
+                     elevators[i]['_startTime'],
+                     elevators[i]['_stopTime'])
+
+            elevatorsList.append(anElevator)
+            abuilding = Building.building(aminfloor, amaxfloor)
+            algo = ElevatorAlgo.elevatorAlgo(abuilding)
+
             theWriter.writeheader()
+
             for call in csv_reader:
                 #Activate the Allocation algorithm
 
@@ -81,13 +106,15 @@ class main():
                         3.Change the value of of call[5] to the index of the allocated Elevator
                         HENCE: call[5] = Algo.Allocate
                 '''
-
+                currentcall=ElevatorCall.CallForElevator(call[0],call[1],call[2],call[3])
+                indexElevator=algo.allocateAnElevator(currentcall)
+                call[5]=indexElevator
 
                 theWriter.writerow({'Elevator call': call[0],  # always the same
                                     'time': call[1],
                                     'SRC': call[2],
                                     'DST': call[3],
-                                    'Status': call[4],  # always -1
+                                    'Status': call[4],  # always 0
                                     'Elevator allocated': call[5]})
 
 
