@@ -105,6 +105,7 @@ class elevatorAlgo:
                 elif direction==-1:
                     return downCalls[index-1]
             index+=1
+        print(index)
         if direction==1:
             if flag!=-1:
                 return upCalls[index]
