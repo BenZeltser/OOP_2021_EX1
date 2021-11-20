@@ -1,6 +1,4 @@
 import time
-import numpy
-import Names
 import csv
 import _json
 import threading
