@@ -1,18 +1,46 @@
 import math
-import Elevator
 import Building
-
-class elevatorAlgo():
-
-    def __init__(self,building:object):
-        self.building=building
+from ElevatorCall import CallForElevator
 
 
-    def getBuilding(self):
-        return self.building
+class elevatorAlgo:
+    global ERROR, DOWN, LEVEL, UP, GOING2SRC, GOING2DST, DONE
+    ERROR = -2
+    DOWN = -1
+    LEVEL = 0
+    UP = 1
+    GOING2SRC = 1
+    GOING2DST = 2
+    DONE = 3
 
-    def distance (self, elevator, src):
-        elev =
+    def __init__(self, building: object):
+        self.building = building
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
