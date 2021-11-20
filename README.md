@@ -40,6 +40,8 @@ of Object-Oriented Porgramming.
 
 **#UML Diagram that describes the classes working inside the program**
 
-![image](https://user-images.githubusercontent.com/92685838/142691160-107d7549-f47b-4ed7-b9c3-3404987c7cdc.png)
+![UML Diagram](https://user-images.githubusercontent.com/92685838/142731840-0cf2fa94-55c0-493c-b463-e6bd4d7f4718.jpg)
+
+
 
 
