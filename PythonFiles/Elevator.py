@@ -2,8 +2,6 @@ import math
 import time
 from typing import Iterable, Union, Tuple, Any, Type
 
-import self as self
-
 from ElevatorCall import CallForElevator
 import static
 import heapq
