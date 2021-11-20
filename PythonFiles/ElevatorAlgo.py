@@ -1,9 +1,7 @@
 import heapq
 import math
 from ElevatorCall import CallForElevator
-import Elevator
-import Building
-import json
+import BuildingObject as building
 
 class elevatorAlgo:
     global ERROR, DOWN, LEVEL, UP, GOING2SRC, GOING2DST, DONE
@@ -67,12 +65,12 @@ class elevatorAlgo:
     def upOrDown(self, ele):
         return ele.getCallType()
 
-    def singleElevatorAllocation(self,building: Building.building, calls: list[CallForElevator] ):
+    def singleElevatorAllocation(self, abuilding: building.aBuildingUnit, calls: list[CallForElevator]):
         allCalls = []
         for call in calls:
             allCalls.append(calls[call].get_SRC())
             heapq.heapify(calls)
-        elevators = building.elevators
+        elevators = building.aBuildingUnit.elevators
         for call in allCalls:
             currentPos = elevators[0].getPos()
             for elevator in elevators:

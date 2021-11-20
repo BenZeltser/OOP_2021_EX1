@@ -1,6 +1,5 @@
 import math
-import time
-from typing import Iterable, Union, Tuple, Any, Type
+
 
 from ElevatorCall import CallForElevator
 import static

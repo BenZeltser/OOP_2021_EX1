@@ -1,3 +1,4 @@
+import random
 import time
 import csv
 import _json
@@ -7,7 +8,7 @@ import json
 import ElevatorAlgo
 import ElevatorCall
 import Elevator
-import Building
+import BuildingObject as Building
 
 
 '''
@@ -73,7 +74,7 @@ class main():
             # Create instance for each elevator - not sure if needed
 
             elevatorsList = []
-            for i in range(len(elevators) - 1):
+            for i in range(len(elevators)):
                 anElevator = Elevator.Elevator(
                     elevators[i]['_id'],
                     elevators[i]['_speed'],
@@ -85,8 +86,23 @@ class main():
                     elevators[i]['_stopTime'])
 
                 elevatorsList.append(anElevator)
-            abuilding = Building.building(aminfloor, amaxfloor, elevatorsList)
+            #Execute PlaceMent
+
+
+            abuilding = Building.aBuildingUnit(aminfloor, amaxfloor, elevatorsList)
+            indexList=[]
+            for i in range(0,len(elevatorsList)):
+                indexList.append(elevatorsList[i].getID())
             algo = ElevatorAlgo.elevatorAlgo(abuilding)
+            upCalls=algo.getUpElevators(indexList)
+            downCalls=algo.getDownElevators(indexList)
+            floors=algo.divideFloors(abuilding,len(downCalls))
+            for i in range(0, len(floors)):
+                print(floors[i])
+            flag=-1
+            if len(upCalls)%2==1:
+                flag=0
+
 
             theWriter.writeheader()
 
@@ -103,15 +119,18 @@ class main():
                         HENCE: call[5] = Algo.Allocate
 
                 '''
-                currentcall = ElevatorCall.CallForElevator(call[0], call[1], call[2], call[3])
-                indexElevator = algo.allocateAnElevator(currentcall,abuilding)
-                call[5] = indexElevator
-                theWriter.writerow({'Elevator call': call[0],  # always the same
-                                    'time': call[1],
-                                    'SRC': call[2],
-                                    'DST': call[3],
-                                    'Status': call[4],  # always 0
-                                    'Elevator allocated': call[5]})
+                if (abuilding.elevators.__sizeof__() > 1):
+                    currentcall = ElevatorCall.CallForElevator(call[0], call[1], call[2], call[3])
+                    algo = ElevatorAlgo.elevatorAlgo(abuilding)
+                    elevatorindex = algo.ChooseElevator(currentcall.get_SRC(),currentcall.get_DST(),floors,upCalls,downCalls,flag)
+
+                    #call[5] = indexElevator
+                    theWriter.writerow({'Elevator call': call[0],  # always the same
+                                        'time': call[1],
+                                        'SRC': call[2],
+                                        'DST': call[3],
+                                        'Status': call[4],  # always 0
+                                        'Elevator allocated': call[5]})
 
 
 
