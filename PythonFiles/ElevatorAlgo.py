@@ -1,3 +1,4 @@
+import heapq
 import math
 from ElevatorCall import CallForElevator
 import Elevator
@@ -65,6 +66,22 @@ class elevatorAlgo:
     # returns if the elevator is a downcalls elevator or upcalls elevator
     def upOrDown(self, ele):
         return ele.getCallType()
+
+    def singleElevatorAllocation(self,building: Building.building, calls: list[CallForElevator] ):
+        allCalls = []
+        for call in calls:
+            allCalls.append(calls[call].get_SRC())
+            heapq.heapify(calls)
+        elevators = building.elevators
+        for call in allCalls:
+            currentPos = elevators[0].getPos()
+            for elevator in elevators:
+                if (elevator.getPos() < currentPos):
+                    currentPos = elevator.getPos()
+                elevators[currentPos].goto(call.get_SRC())
+
+
+
 
     # returns the distanced (in floors) between an elevator destantion and and source of the call
     def abDST(self, myPos, DST):
