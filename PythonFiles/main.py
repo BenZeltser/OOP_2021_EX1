@@ -97,10 +97,8 @@ class main():
             upCalls=algo.getUpElevators(indexList)
             downCalls=algo.getDownElevators(indexList)
             floors=algo.divideFloors(abuilding,len(downCalls))
-            for i in range(0, len(floors)):
-                print(floors[i])
             flag=-1
-            if len(upCalls)%2==1:
+            if len(indexList)%2==1:
                 flag=0
 
 
@@ -123,8 +121,11 @@ class main():
                     currentcall = ElevatorCall.CallForElevator(call[0], call[1], call[2], call[3])
                     algo = ElevatorAlgo.elevatorAlgo(abuilding)
                     elevatorindex = algo.ChooseElevator(currentcall.get_SRC(),currentcall.get_DST(),floors,upCalls,downCalls,flag)
-
-                    #call[5] = indexElevator
+                    if flag==0:
+                        flag=1
+                    elif flag==1:
+                        flag=0
+                    call[5] = elevatorindex
                     theWriter.writerow({'Elevator call': call[0],  # always the same
                                         'time': call[1],
                                         'SRC': call[2],
