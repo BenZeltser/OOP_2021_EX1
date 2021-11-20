@@ -20,50 +20,6 @@ class elevatorAlgo:
     def getBuilding(self):
         return self.building
 
-    # returns the name of the algorithm
-    def algoName(self):
-        return "EX1_OOP_Smart_Elevator_Algo_Offline"
-
-    # calculate the distance between an elevator and a destantion
-    def distance(self, elevatorIndex, src, building = Building.building):
-        answer = -1
-        elev = building.elevators[elevatorIndex]
-        pos = elev.getPos()
-        speed = elev.getSpeed()
-        startNstop = elev.getStartTime() + elev.getStopTime()
-        stopTime = elev.getStopTime()
-        state = elev.getState()
-        distance = math.fabs((int(src) - int(pos)))
-        if src == pos:
-            return 0
-        if state == LEVEL:
-            answer = distance * speed + startNstop
-        elif state == UP or state == -DOWN:
-            answer = distance * speed + stopTime
-        return answer
-
-    # this function returns if an elevator can be assigned to a call
-    def isValid(self, direction, floorCall, pos, elevDirection):
-        if elevDirection != 0:
-            if elevDirection != direction:
-                return False
-        if direction == UP:
-            if int(pos) > int(floorCall):
-                return False
-        elif direction == DOWN:
-            if int(pos) < int(floorCall):
-                return False
-        return True
-
-    def callDirection(self,DST,SRC):
-        if DST>SRC:
-            return UP
-        else:
-            return DOWN
-
-    # returns if the elevator is a downcalls elevator or upcalls elevator
-    def upOrDown(self, ele):
-        return ele.getCallType()
 
     def singleElevatorAllocation(self, abuilding: building.aBuildingUnit, calls: list[CallForElevator]):
         allCalls = []
@@ -78,68 +34,92 @@ class elevatorAlgo:
                     currentPos = elevator.getPos()
                 elevators[currentPos].goto(call.get_SRC())
 
+    def getUpElevators(self,indexList: list):
+        size=len(indexList)
+        upList=[]
+        if int(size)%2==1:
+            divider=int((size-1)/2)
+            index=0
+            for i in range(1,divider):
+                upList.append(indexList[index])
+                index=index+2
+            upList.append(indexList[index])
+        else:
+            divider=int(size/2)
+            index=0
+            for i in range(0,divider):
+                upList.append(indexList[index])
+                index=index+2
+        return upList
+
+    def getDownElevators(self,indexList: list):
+        size=len(indexList)
+        downList=[]
+        if int(size)%2==1:
+            divider=int((size-1))/2
+            index=1
+            for i in range(0,divider):
+                downList.append(indexList[index])
+                index=index+2
+        else:
+            divider=int(size/2)
+            index=1
+            for i in range(0,divider):
+                downList.append(indexList[index])
+                index=index+2
+        return downList
+
+    def divideFloors(self,abuilding: building.aBuildingUnit, param):
+        floors=[]
+        min=abuilding.minFloor
+        max=abuilding.maxFloor
+        size=math.fabs(max-min)
+        divide=int(size/param)
+        floor=max
+        for i in range(0,param):
+            floors.append(floor)
+            floor=floor+divide
+        return floors
+
+    def ChooseElevator(self,src,dst,floors,upCalls,downCalls,flag):
+        index=1
+        direction=0
+        if int(src)>int(dst):
+            direction=-1
+        elif int(dst)>int(src):
+            direction=1
+
+        while(index<len(floors)):
+            if int(src)<floors[index]:
+                if direction==1:
+                    if flag != -1:
+                        if index == 1:
+                            if flag == 0:
+                                return upCalls[0]
+                            else:
+                                return upCalls[1]
+                        else:
+                            return upCalls[index]
+                    else:
+                        return upCalls[index-1]
+                elif direction==-1:
+                    return downCalls[index-1]
+            index+=1
+        if direction==1:
+            if flag!=-1:
+                return upCalls[index]
+            else:
+
+                return upCalls[index-1]
+        else:
+            return downCalls[index-1]
 
 
 
-    # returns the distanced (in floors) between an elevator destantion and and source of the call
-    def abDST(self, myPos, DST):
-        return math.fabs((myPos - DST))
 
-    # this is the main algorithm, it checks between all the elevators and returns the closest elevator to the source
-    def allocateAnElevator(self, callForElev: CallForElevator, building:Building.building):
-        index = -1
-        elevatorIndex = 0
-        src = callForElev.get_SRC()
-        dst = callForElev.get_DST()
-        distance = -1
-        print(building.elevators[0])
-        elevator=building.elevators[elevatorIndex]
-        while elevator != None:
-            pos = elevator.getPos()
-            print(elevator.getState())
-            print(src)
-            print(elevator.getPos())
-            print(elevator.getCallType())
-            if self.isValid(self.callDirection(dst,src), src,elevator.getPos(), elevator.getCallType()) == True:
-                tempDist = self.distance(index, src,building)
-                print(tempDist)
-                if tempDist != -1:
-                    if tempDist == 0:
-                        return elevatorIndex
-                    elif distance == -1:
-                        distance = tempDist
-                        index = elevatorIndex
-                    elif tempDist < distance:
-                        distance = tempDist
-                        index = elevatorIndex
-                elevatorIndex += 1
-                elevator = building.elevators  #THIS IS WHERE WE STOPPED
-                if index == -1:
-                    distance = -1
-                    elevatorIndex = 0
-                    while elevator != None:
-                        if elevator.getState == ERROR:
-                            elevatorIndex += 1
-                            continue
-                        if callForElev.getType() == self.upOrDown(elevator):
-                            tempDist = self.abDST(elevator.getDST, src)
-                            if distance == -1:
-                                distance = tempDist
-                                index = elevatorIndex
-                            elif tempDist < distance:
-                                distance = tempDist
-                                index = elevatorIndex
-                        elevatorIndex += 1
-            return index
 
-    # this function insert the calls inside the chosen elevator
-    def cmdElevator(self, elevator, callForElev):
-        SRC = callForElev.getSrc()
-        DST = callForElev.getDST()
-        if SRC > DST:
-            elevator.getDownCall(callForElev)
-        elif DST > SRC:
-            elevator.getUpCall(callForElev)
+
+
 
 
 
